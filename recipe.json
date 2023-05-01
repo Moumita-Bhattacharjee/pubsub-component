@@ -1,0 +1,46 @@
+{
+    "RecipeFormatVersion": "2020-01-25",
+    "ComponentName": "com.t2s.pubsub",
+    "ComponentVersion": "0.0.49",
+    "ComponentDescription": "MQTT pubsub feature SDK attach.",
+    "ComponentPublisher": "Think To Share",
+    "ComponentConfiguration": {
+      "DefaultConfiguration": {
+          "accessControl": {
+              "aws.greengrass.ipc.mqttproxy": {
+                  "com.example.MyIoTCorePubSubComponent:mqttproxy:1": {
+                      "policyDescription": "Allows access to publish/subscribe to all topics.",
+                      "operations": [
+                          "aws.greengrass#PublishToIoTCore",
+                          "aws.greengrass#SubscribeToIoTCore"
+                      ],
+                      "resources": [
+                          "*"
+                      ]
+                  }
+              }
+          }
+      }
+   },
+    "Manifests": [
+       {
+          "Platform": {
+             "os": "linux"
+          },
+
+          "Lifecycle": {
+            "Install": "pip3 install --user awsiotsdk boto3",
+            "Run": {
+                "Script": "python3 -u {artifacts:decompressedPath}/pubsub/main.py"
+            }
+          },
+
+          "Artifacts": [
+            {
+               "URI": "s3://care-cam/artifacts/com.t2s.pubsub/0.0.49/pubsub.zip",
+               "Unarchive": "ZIP"
+            }
+         ]
+       }
+    ]
+ }
