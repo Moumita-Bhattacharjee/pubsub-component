@@ -1,14 +1,14 @@
 {
     "RecipeFormatVersion": "2020-01-25",
     "ComponentName": "com.t2s.pubsub",
-    "ComponentVersion": "0.0.49",
+    "ComponentVersion": "0.0.53",
     "ComponentDescription": "MQTT pubsub feature SDK attach.",
     "ComponentPublisher": "Think To Share",
     "ComponentConfiguration": {
       "DefaultConfiguration": {
           "accessControl": {
               "aws.greengrass.ipc.mqttproxy": {
-                  "com.example.MyIoTCorePubSubComponent:mqttproxy:1": {
+                  "com.t2s.pubsub:mqttproxy:1": {
                       "policyDescription": "Allows access to publish/subscribe to all topics.",
                       "operations": [
                           "aws.greengrass#PublishToIoTCore",
@@ -37,7 +37,7 @@
 
           "Artifacts": [
             {
-               "URI": "s3://care-cam/artifacts/com.t2s.pubsub/0.0.49/pubsub.zip",
+               "URI": "s3://care-cam/artifacts/com.t2s.pubsub/0.0.53/pubsub.zip",
                "Unarchive": "ZIP"
             }
          ]
